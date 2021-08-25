@@ -10,7 +10,7 @@
 }
 
 .app-wrapper{
-	height: 600px;
+	height: 100vh;
 	text-align: center;
 	border-radius: 10px;
 	border: 2px solid var(--secondary-border-color);
@@ -18,7 +18,7 @@
 
 .nav-bar {
 	/* margin-top: 5px; */
-	min-height: 35px;
+	min-height: 5vh;
 	border: 2px solid var(--main-border-color);
 	border-radius: 10px;
 }
@@ -33,7 +33,14 @@
 	border: 2px solid var(--main-border-color);
 	background: var(--main-bg-color);
 	border-radius: 5px;
-	height: 350px;
+	
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	height: 50vh;
+}
+
+.stuffy-grid{
+	margin:0px;
 }
 
 .card-container {
@@ -83,8 +90,8 @@ label[for=Dart-Tingles]{
 	text-align: center;
 	border-radius: 10px;
 	border: 2px solid var(--main-border-color);
-	height: 210px;
-	padding: 5px;
+	height: 35vh;
+	padding: 5px 10px;
 }
 
 .react-date-picker{
@@ -94,12 +101,12 @@ label[for=Dart-Tingles]{
 
 .CheckedStuffiesContainer{
 	margin-top: 5px;
-	height: 150px;
+	height: 80%;
 	overflow-y: scroll;
 
 	background-color: rgb(100, 100, 100);
 	border: 2px solid black;
-	border-radius: 5px;
+	border-radius: 10px;
 	padding: 1px;
 }
 /* table-secondary table-sm table-striped table-bordered table-hover */
