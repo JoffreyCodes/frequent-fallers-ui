@@ -5,6 +5,7 @@ import { useQuery, gql } from "@apollo/client";
 import './Layout.css';
 import CardsContainer from '../Cards-Panel/CardsContainer';
 import SubmissionContainer from '../Submission-Panel/SubmissionContainer';
+import NavBarContainer from '../Nav-Bar-Panel/NavBarContainer';
 
 const STUFFY_LIST = gql `
 query{
@@ -43,7 +44,7 @@ export function Layout(){
               className="nav-bar"
               md={{span:12}}
             >
-              Nav
+              <NavBarContainer />
             </Col>
             <Row>
               <Col 

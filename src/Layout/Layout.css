@@ -5,7 +5,6 @@
 	--main-border-color: black;
 	--secondary-border-color: rgb(211, 73, 73);
 	color: var(--main-text-color);
-
 	background: var(--main-bg-color);
 }
 
@@ -19,8 +18,29 @@
 .nav-bar {
 	/* margin-top: 5px; */
 	min-height: 5vh;
-	border: 2px solid var(--main-border-color);
+	border: 1px solid var(--main-border-color);
 	border-radius: 10px;
+}
+.date-container{
+	padding: 0px;
+	font-size: 14px;
+}
+.react-date-picker.react-date-picker--closed.react-date-picker--enabled{
+	margin-bottom: 0px;
+}
+.react-date-picker__wrapper{
+	margin:3px;
+	background: rgb(153, 153, 153);
+	border-radius: 5px;
+	height: 4vh;
+	padding: 2px;
+	border-top: 2px;
+}
+.react-date-picker__wrapper button {
+	padding:2px;
+}
+.react-date-picker__inputGroup{
+	font-size:13px
 }
 
 /*  Cards  Panel */
@@ -33,24 +53,19 @@
 	border: 2px solid var(--main-border-color);
 	background: var(--main-bg-color);
 	border-radius: 5px;
-	
 	border-bottom-left-radius: 10px;
 	border-bottom-right-radius: 10px;
 	height: 50vh;
 }
-
 .stuffy-grid{
 	margin:0px;
 }
-
 .card-container {
 	margin-top: 5px;
 }
-
 *{
 	-ms-overflow-style: none;
 }
-
 .card-col.col{
 	display: flex;
   align-items: center;
@@ -60,22 +75,18 @@
 	height: auto;
 	margin-top:5px;
 }
-
 /* Card image */
 img {
 	max-width:auto;
 	height:auto;
 }
-
 .card-footer{
 	padding:2px
 }
-
 /* card label */
 label{
 	font-weight: 500;
 }
-
 label[for=Dart-Tingles]{
 	font-size: 14px;
 	font-weight: 600;
@@ -93,17 +104,14 @@ label[for=Dart-Tingles]{
 	height: 35vh;
 	padding: 5px 10px;
 }
-
 .react-date-picker{
 	margin-bottom: 5px;
 	color: var(--main-text-color);
 }
-
 .CheckedStuffiesContainer{
 	margin-top: 5px;
 	height: 80%;
 	overflow-y: scroll;
-
 	background-color: rgb(100, 100, 100);
 	border: 2px solid black;
 	border-radius: 10px;
@@ -116,8 +124,6 @@ table.table-secondary {
 th {
 	font-size: 12px;
 }
-
-
 td {
 	font-size: 12px;
 }
