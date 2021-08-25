@@ -8,9 +8,9 @@ function SubmissionContainer(props) {
 
   return (
     <>
-      <DateContainer 
+      {/* <DateContainer 
         setWeekday={(val)=>setWeekday(val)}
-      />
+      /> */}
       <ListCheckedStuffies
         stuffyCheckedList={props.stuffyCheckedList}
       />

@@ -5,6 +5,7 @@
 	--main-border-color: black;
 	--secondary-border-color: rgb(211, 73, 73);
 	color: var(--main-text-color);
+
 	background: var(--main-bg-color);
 }
 
@@ -17,8 +18,8 @@
 }
 
 .nav-bar {
-	margin-top: 5px;
-	min-height: 75px;
+	/* margin-top: 5px; */
+	min-height: 35px;
 	border: 2px solid var(--main-border-color);
 	border-radius: 10px;
 }
@@ -29,11 +30,11 @@
   display: flex;
   justify-content: center;
 	margin: 0px;
-	padding-top: 10px;
+	padding-top: 2px;
 	border: 2px solid var(--main-border-color);
 	background: var(--main-bg-color);
-	border-radius: 10px;
-	max-height: 660px;
+	border-radius: 5px;
+	max-height: 400px;
 }
 
 .card-container {
@@ -54,11 +55,20 @@
 	margin-top:5px;
 }
 
+/* Card image */
 img {
 	max-width:auto;
 	height:auto;
 }
 
+.card-footer{
+	padding:2px
+}
+
+/* card label */
+label{
+	font-weight: 600;
+}
 
 ::-webkit-scrollbar {
 	display: none;
@@ -71,8 +81,9 @@ img {
 	padding-top: 10px;
 	border-radius: 10px;
 	border: 2px solid var(--main-border-color);
-}
+	min-height: 245px;
 
+}
 
 .react-date-picker{
 	margin-bottom: 5px;
@@ -80,8 +91,7 @@ img {
 }
 
 .CheckedStuffiesContainer{
-	margin-top: 10px;
-	min-height: 400px;
+	margin-top: 5px;
 	max-height: 400px;
 	overflow-y: scroll;
 
@@ -97,4 +107,3 @@ img {
 	border: 2px solid var(--main-border-color);
 	border-radius: 10px;
 }
-

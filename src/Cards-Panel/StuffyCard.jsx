@@ -27,7 +27,7 @@ export function StuffyCard(props){
       <Card
         border='secondary'
         bg='secondary' 
-        style={{ width: '10rem' }}
+        style={{ width: '8rem' }}
         key={props.stuffyName}
         onClick={handleCardClick}
       >
@@ -42,7 +42,7 @@ export function StuffyCard(props){
             id={props.stuffyName}
             checked={isChecked}
             onChange={handleNameClick}
-            label={<h6>{props.stuffyName}</h6>}
+            label={props.stuffyName}
           />
         </Card.Footer>
       </Card>
