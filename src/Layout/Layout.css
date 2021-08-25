@@ -10,8 +10,7 @@
 }
 
 .app-wrapper{
-	/* min-height: 950px; */
-	max-height: 1024px;
+	height: 600px;
 	text-align: center;
 	border-radius: 10px;
 	border: 2px solid var(--secondary-border-color);
@@ -34,7 +33,7 @@
 	border: 2px solid var(--main-border-color);
 	background: var(--main-bg-color);
 	border-radius: 5px;
-	max-height: 400px;
+	height: 350px;
 }
 
 .card-container {
@@ -67,9 +66,13 @@ img {
 
 /* card label */
 label{
-	font-weight: 600;
+	font-weight: 500;
 }
 
+label[for=Dart-Tingles]{
+	font-size: 14px;
+	font-weight: 600;
+}
 ::-webkit-scrollbar {
 	display: none;
 }
@@ -78,11 +81,10 @@ label{
 .submission-panel{
 	color: var(--main-text-color);
 	text-align: center;
-	padding-top: 10px;
 	border-radius: 10px;
 	border: 2px solid var(--main-border-color);
-	min-height: 245px;
-
+	height: 210px;
+	padding: 5px;
 }
 
 .react-date-picker{
@@ -92,7 +94,7 @@ label{
 
 .CheckedStuffiesContainer{
 	margin-top: 5px;
-	max-height: 400px;
+	height: 150px;
 	overflow-y: scroll;
 
 	background-color: rgb(100, 100, 100);
@@ -100,10 +102,15 @@ label{
 	border-radius: 5px;
 	padding: 1px;
 }
+/* table-secondary table-sm table-striped table-bordered table-hover */
+table.table-secondary {
+	margin-bottom:0px;
+}
+th {
+	font-size: 12px;
+}
 
-/* Footer */
-.footer {
-	max-height: 50px;
-	border: 2px solid var(--main-border-color);
-	border-radius: 10px;
+
+td {
+	font-size: 12px;
 }

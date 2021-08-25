@@ -64,12 +64,6 @@ export function Layout(){
                 />
               </Col>
             </Row>
-            <Col 
-              className="footer"
-              md={{span:12}}
-            >
-              footer
-            </Col>
           </Col>
         </Row>
       </Container>

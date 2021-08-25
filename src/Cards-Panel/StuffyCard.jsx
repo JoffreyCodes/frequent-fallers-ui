@@ -27,7 +27,7 @@ export function StuffyCard(props){
       <Card
         border='secondary'
         bg='secondary' 
-        style={{ width: '8rem' }}
+        style={{ width: '7rem' }}
         key={props.stuffyName}
         onClick={handleCardClick}
       >
