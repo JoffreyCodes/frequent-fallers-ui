@@ -12,7 +12,7 @@
 	height: 100vh;
 	text-align: center;
 	border-radius: 10px;
-	border: 2px solid var(--secondary-border-color);
+	/* border: 2px solid var(--secondary-border-color); */
 }
 
 .nav-bar {
@@ -55,7 +55,7 @@
 	border-radius: 5px;
 	border-bottom-left-radius: 10px;
 	border-bottom-right-radius: 10px;
-	height: 50vh;
+	height: 55vh;
 }
 .stuffy-grid{
 	margin:0px;
@@ -101,7 +101,7 @@ label[for=Dart-Tingles]{
 /* Submission panel */
 .submission-panel{
 	color: var(--main-text-color);
-	/* text-align: center; */
+	min-height: 40vh;
 	border-radius: 10px;
 	border: 2px solid var(--main-border-color);
 	height: 35vh;

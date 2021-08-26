@@ -11,7 +11,7 @@ function SubmissionSequence(props) {
   try{
     const dateNum= props.date.getDay()
     validDate = true
-    message=(`Confirm submission for ${weekdays[dateNum]}?`)
+    message=(`Confirm ${weekdays[dateNum]} Submission?`)
   }catch (err){
     validDate = false
     message="Must select a date before submitting"
@@ -41,14 +41,14 @@ function SubmissionSequence(props) {
         <Button 
           variant="success"
         > 
-          yes 
+          Submit 
         </Button>
         {' '}
         <Button 
           variant="outline-danger"
           onClick={(()=>setPreConfirmed(false))}
         > 
-          no 
+          Back 
         </Button>
       </>
       )
