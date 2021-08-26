@@ -1,20 +1,24 @@
 import React, {useState} from 'react'
 import ListCheckedStuffies from './ListCheckedStuffies'
-import DateContainer from './DateContainer'
 
 function SubmissionContainer(props) {
-  const [weekday, setWeekday] = useState('')
-
-
+  const weekdays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+  function ShowWeekday(){
+    let message;
+    try{
+      const dateNum= props.date.getDay()
+      message=(`${weekdays[dateNum]}`)
+    }catch (err){
+      message=("Must select a date")
+    }
+    return message
+  }
   return (
     <>
-      {/* <DateContainer 
-        setWeekday={(val)=>setWeekday(val)}
-      /> */}
       <ListCheckedStuffies
         stuffyCheckedList={props.stuffyCheckedList}
       />
-        <h2>{weekday}</h2>
+        <ShowWeekday />
     </>
   )
 }

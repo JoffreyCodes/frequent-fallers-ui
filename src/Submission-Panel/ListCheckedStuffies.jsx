@@ -7,6 +7,7 @@ function ListCheckedStuffies(props) {
    const filteredTrue = props.stuffyCheckedList
     .filter((stuffyData) => stuffyData.isChecked === true)
 
+    
     function calculateCount(stuffyName){
       return 1;
     }

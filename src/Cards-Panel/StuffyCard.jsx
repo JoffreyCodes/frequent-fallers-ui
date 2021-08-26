@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { Form, Card, Image } from 'react-bootstrap'
+import { Form, Card } from 'react-bootstrap'
 export function StuffyCard(props){
 
   function stuffyImage(stuffyName){
@@ -13,13 +13,16 @@ export function StuffyCard(props){
   const [isChecked, setIsChecked] = useState(false)
 
   function handleCardClick(event){
-    handleNameClick(event)
+    // handleNameClick(event)
     setIsChecked(!isChecked)
     props.isChecked([props.stuffyName, !isChecked, event])
   }
 
   function handleNameClick(event){
-    console.log(event)
+    // if((event.target.labels[0].getAttribute("class")) == 'form-check-label')
+    // console.log(event.target.labels[0].getAttribute("class"))
+    console.log(event.target)
+
   }
 
   return(
@@ -36,14 +39,15 @@ export function StuffyCard(props){
           src={stuffyImage(props.stuffyName)}
         />
         <Card.Footer>
-
-          <Form.Check
-            type="checkbox"
-            id={props.stuffyName}
-            checked={isChecked}
-            onChange={handleNameClick}
-            label={props.stuffyName}
-          />
+          <Form>
+            <Form.Check
+              className='stuffyCheck'
+              type="checkbox"
+              id={props.stuffyName}
+              checked={isChecked}
+              onChange={handleNameClick}
+            />
+          </Form>
         </Card.Footer>
       </Card>
     </>

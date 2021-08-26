@@ -1,12 +1,14 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import DateContainer from './DateContainer'
 
-function NavBarContainer() {
-  const [weekday, setWeekday] = useState('')
-
+function NavBarContainer(props) {
+  const [date, setDate] = useState();
+  useEffect(()=>{
+    props.setDate(date);
+  })
   return (
     <>
-      <DateContainer setWeekday={setWeekday} />
+      <DateContainer setDate={setDate} />
     </>
   )
 }

@@ -17,8 +17,9 @@ query{
 export function Layout(){
   const [stuffyList, setStuffyList] = useState([])
   const [stuffyCheckedList, setStuffyCheckedList] = useState([])
-
   const [onCompleted, setOnCompleted] = useState(false)
+  const [date, setDate] = useState();
+
 
   const {data, error, loading} = useQuery(STUFFY_LIST, {
     fetchPolicy: 'network-only',
@@ -44,7 +45,7 @@ export function Layout(){
               className="nav-bar"
               md={{span:12}}
             >
-              <NavBarContainer />
+              <NavBarContainer setDate={setDate} />
             </Col>
             <Row>
               <Col 
@@ -62,6 +63,7 @@ export function Layout(){
               >
                 <SubmissionContainer
                   stuffyCheckedList={stuffyCheckedList}
+                  date={date}
                 />
               </Col>
             </Row>

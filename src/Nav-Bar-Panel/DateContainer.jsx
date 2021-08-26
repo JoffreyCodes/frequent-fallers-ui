@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {Container} from 'react-bootstrap'
 import DatePicker from 'react-date-picker'
 
@@ -17,8 +17,8 @@ function DateContainer(props) {
     return message
   }
 
-  React.useEffect(()=>{
-    props.setWeekday(ShowWeekday());
+  useEffect(()=>{
+    props.setDate(date);
   })
 
   return (
