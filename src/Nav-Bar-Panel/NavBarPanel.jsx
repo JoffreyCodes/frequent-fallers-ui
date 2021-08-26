@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import DateContainer from './DateContainer'
 
-function NavBarContainer(props) {
+function NavBarPanel(props) {
   const [date, setDate] = useState();
   useEffect(()=>{
     props.setDate(date);
@@ -13,4 +13,4 @@ function NavBarContainer(props) {
   )
 }
 
-export default NavBarContainer
+export default NavBarPanel

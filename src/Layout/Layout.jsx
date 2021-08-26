@@ -3,9 +3,9 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { useQuery, gql } from "@apollo/client";
 
 import './Layout.css';
-import CardsContainer from '../Cards-Panel/CardsContainer';
-import SubmissionContainer from '../Submission-Panel/SubmissionContainer';
-import NavBarContainer from '../Nav-Bar-Panel/NavBarContainer';
+import CardsPanel from '../Cards-Panel/CardsPanel';
+import SubmissionPanel from '../Submission-Panel/SubmissionPanel';
+import NavBarPanel from '../Nav-Bar-Panel/NavBarPanel';
 
 const STUFFY_LIST = gql `
 query{
@@ -45,14 +45,14 @@ export function Layout(){
               className="nav-bar"
               md={{span:12}}
             >
-              <NavBarContainer setDate={setDate} />
+              <NavBarPanel setDate={setDate} />
             </Col>
             <Row>
               <Col 
                 className="cards-panel"
                 md={{span:9}}
               >
-                <CardsContainer 
+                <CardsPanel 
                   stuffyList={stuffyList}
                   setStuffyCheckedList={(val)=>setStuffyCheckedList([...val])}
                 />
@@ -61,7 +61,7 @@ export function Layout(){
                 className="submission-panel"
                 md={{span:3}}
               >
-                <SubmissionContainer
+                <SubmissionPanel
                   stuffyCheckedList={stuffyCheckedList}
                   date={date}
                 />

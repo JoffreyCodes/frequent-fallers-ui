@@ -1,7 +1,7 @@
 import React from 'react'
 import { StuffyGrid } from './StuffyGrid'
 
-export function CardsContainer(props){
+export function CardsPanel(props){
   return(   
     <>
       <StuffyGrid 
@@ -12,4 +12,4 @@ export function CardsContainer(props){
   )
 }
 
-export default CardsContainer
+export default CardsPanel

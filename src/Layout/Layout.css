@@ -101,11 +101,12 @@ label[for=Dart-Tingles]{
 /* Submission panel */
 .submission-panel{
 	color: var(--main-text-color);
-	text-align: center;
+	/* text-align: center; */
 	border-radius: 10px;
 	border: 2px solid var(--main-border-color);
 	height: 35vh;
 	padding: 5px 10px;
+	font-size: 11px;
 }
 .react-date-picker{
 	margin-bottom: 5px;
@@ -134,5 +135,8 @@ table.table-secondary {
 td {
 	font-size: 12px;
 	padding-top: 0px 0px;
+}
 
+.pre-submit-button{
+	margin: 3px;
 }
