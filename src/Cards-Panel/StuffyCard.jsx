@@ -13,16 +13,8 @@ export function StuffyCard(props){
   const [isChecked, setIsChecked] = useState(false)
 
   function handleCardClick(event){
-    // handleNameClick(event)
     setIsChecked(!isChecked)
     props.isChecked([props.stuffyName, !isChecked, event])
-  }
-
-  function handleNameClick(event){
-    // if((event.target.labels[0].getAttribute("class")) == 'form-check-label')
-    // console.log(event.target.labels[0].getAttribute("class"))
-    console.log(event.target)
-
   }
 
   return(
@@ -30,7 +22,7 @@ export function StuffyCard(props){
       <Card
         border='secondary'
         bg='secondary' 
-        style={{ width: '7rem' }}
+        style={{ width: '30vw' }}
         key={props.stuffyName}
         onClick={handleCardClick}
       >
@@ -45,7 +37,7 @@ export function StuffyCard(props){
               type="checkbox"
               id={props.stuffyName}
               checked={isChecked}
-              onChange={handleNameClick}
+              onChange={()=> null}
             />
           </Form>
         </Card.Footer>
