@@ -140,3 +140,8 @@ td {
 .pre-submit-button{
 	margin: 3px;
 }
+
+.fade.alert.alert-success.show{
+	padding:10px;
+	margin-top: 5px;
+}

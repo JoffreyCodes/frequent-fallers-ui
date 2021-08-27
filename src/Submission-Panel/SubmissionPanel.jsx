@@ -9,7 +9,8 @@ function SubmissionPanel(props) {
         stuffyCheckedList={props.stuffyCheckedList}
       />
       <SubmissionSequence
-        date={props.date} 
+        date={props.date}
+        stuffyCheckedList={props.stuffyCheckedList} 
       />
     </>
   )

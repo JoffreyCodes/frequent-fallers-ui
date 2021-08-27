@@ -1,10 +1,13 @@
 import React, {useState} from 'react'
-import {Container, Button} from 'react-bootstrap'
+import {Container, Button, Alert} from 'react-bootstrap'
+
+import HandleSubmit from './HandleSubmit'
 
 function SubmissionSequence(props) {
   const [preConfirmed, setPreConfirmed] = useState(false)
-  
-  const weekdays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+  const [success, setSuccess] = useState(false)
+  const weekdays = ["Sunday","Monday","Tuesday",
+    "Wednesday","Thursday","Friday","Saturday"];
   
   let message;
   let validDate
@@ -17,7 +20,7 @@ function SubmissionSequence(props) {
     message="Must select a date before submitting"
   }
 
-  function userPreconfirm(){
+  function userPreConfirm(){
     return(
       validDate ?
         <Button 
@@ -34,12 +37,18 @@ function SubmissionSequence(props) {
         </Button>)
   }
 
+  function handleSuccessClick(){
+    HandleSubmit(props.date, props.stuffyCheckedList)
+    setSuccess(true)
+  }
+
   function UserConfirmed(){
     if (preConfirmed && validDate){
       return (
         <>
         <Button 
           variant="success"
+          onClick={()=>handleSuccessClick()}
         > 
           Submit 
         </Button>
@@ -53,13 +62,19 @@ function SubmissionSequence(props) {
       </>
       )
     } else {
-      return (userPreconfirm())
+      return (userPreConfirm())
     }      
   }
 
+
+
   return (
     <Container className='pre-submit-button'>
-      <UserConfirmed />
+      {success
+        ? <Alert 
+            variant='success'> Submission Successful</Alert>
+        :<UserConfirmed />
+      }
     </Container>
   )
 }
