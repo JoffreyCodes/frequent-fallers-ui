@@ -3,7 +3,7 @@ import {Container} from 'react-bootstrap'
 import DatePicker from 'react-date-picker'
 
 function DateContainer(props) {
-  const [date, setDate] = useState(new Date());
+  const [date, setDate] = useState(props.date);
   const weekdays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 
   function ShowWeekday(){
@@ -21,13 +21,18 @@ function DateContainer(props) {
     props.setDate(date);
   })
 
+  function handleChange(event){
+    props.setDate(event)
+    props.setOnCompleted(false)
+  }
+
   return (
     <Container className="date-container">
       <ShowWeekday />
       {' '}
       <DatePicker 
-        onChange={setDate}
-        value={date}
+        onChange={(event)=>handleChange(event)}
+        value={props.date}
       />
     </Container>
   )

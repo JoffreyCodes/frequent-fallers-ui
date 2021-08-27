@@ -6,34 +6,44 @@ import './Layout.css';
 import CardsPanel from '../Cards-Panel/CardsPanel';
 import SubmissionPanel from '../Submission-Panel/SubmissionPanel';
 import NavBarPanel from '../Nav-Bar-Panel/NavBarPanel';
-
-const STUFFY_LIST = gql `
-query{
-  stuffies{
-    stuffyName primaryColor secondaryColor
-  }  
-}`
+import { STUFFY_LIST } from '../utils/queries';
 
 export function Layout(){
   const [stuffyList, setStuffyList] = useState([])
   const [stuffyCheckedList, setStuffyCheckedList] = useState([])
   const [onCompleted, setOnCompleted] = useState(false)
-  const [date, setDate] = useState();
+  const [date, setDate] = useState(new Date());
 
+  const [month, day, year] = [date.getMonth(), date.getDate(), date.getFullYear()];
+  var MONTH_NUMS = [];
+  for (var i = 1; i <= 12; i++) {
+    MONTH_NUMS.push(i);
+  }
+  const date_formatted = `"${MONTH_NUMS[month]}/${day}/${year}"`
+  
+  const prevSubs = useQuery(gql`query PriorSubmissions{
+    priorSubmissions(date:${date_formatted}) {
+      date stuffyName didFall
+    }
+  }`)
 
-  const {data, error, loading} = useQuery(STUFFY_LIST, {
-    fetchPolicy: 'network-only',
-    notifyOnNetworkStatusChange: true,
-  })
-  if (loading) return "Loading..."
+  const {data, error, loading} = useQuery(STUFFY_LIST)
+
+  if (prevSubs.loading || loading) return "Loading..."
+  if (prevSubs.error) return `Error! ${prevSubs.error.message}`;
   if (error) return `Error! ${error.message}`;
-  if(data && onCompleted === false){
+
+  if( data && onCompleted === false){
     setStuffyList(data.stuffies)
+    setOnCompleted(true)
+  }
+  if(prevSubs.data.priorSubmissions.length !== 0 && onCompleted === false){
+    setStuffyList(prevSubs.data.priorSubmissions)
     setOnCompleted(true)
   }
 
   return (
-    data ?
+    prevSubs.data?
       <Container fluid className="app-container">
 
         <Row>
@@ -45,7 +55,11 @@ export function Layout(){
               className="nav-bar"
               md={{span:12}}
             >
-              <NavBarPanel setDate={setDate} />
+              <NavBarPanel
+                date={date} 
+                setDate={setDate}
+                setOnCompleted={setOnCompleted} 
+              />
             </Col>
             <Row>
               <Col 

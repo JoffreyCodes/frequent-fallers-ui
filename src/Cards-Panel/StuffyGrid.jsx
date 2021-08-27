@@ -3,16 +3,15 @@ import { StuffyCard } from './StuffyCard'
 import { Row, Col } from 'react-bootstrap';
 
 export function StuffyGrid(props){
-
   const stuffyNames = props.stuffyList.map((stuffy)=>stuffy.stuffyName);
   
-  let initList = [];
-  stuffyNames.forEach(stuffyName => [
-    initList.push({
-      stuffyName: stuffyName, 
-      isChecked: false
-    })  
-  ])
+  let initList = [];  
+    stuffyNames.forEach(stuffyName => [
+      initList.push({
+        stuffyName: stuffyName, 
+        isChecked: false
+      })  
+    ])
 
   const [stuffyCheckedList, setStuffyCheckedList] = useState(initList)
 

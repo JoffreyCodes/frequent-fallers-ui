@@ -2,10 +2,18 @@ import { gql } from '@apollo/client';
 
 const PRIOR_SUBMISSIONS = gql`
   query priorSubmissions($date: String){
-    date(date: $date){
+    priorSubmissions(date: $date){
       date stuffyName didFall
     }
   }  
+`;
+
+const STUFFY_LIST = gql`
+  query{
+    stuffies{
+      stuffyName primaryColor secondaryColor
+    }  
+  }
 `;
 
 const LOG_STUFFY_FALL = gql`
@@ -24,4 +32,4 @@ const LOG_STUFFY_FALL = gql`
   }
 `;
 
-export { LOG_STUFFY_FALL, PRIOR_SUBMISSIONS }
+export { LOG_STUFFY_FALL, PRIOR_SUBMISSIONS, STUFFY_LIST }
