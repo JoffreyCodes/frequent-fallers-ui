@@ -14,6 +14,8 @@ export function Layout(){
   const [onCompleted, setOnCompleted] = useState(false)
   const [date, setDate] = useState(new Date());
 
+  console.log(stuffyCheckedList)
+
   let month, day, year;
   try{
     [month, day, year] = [date.getMonth(), date.getDate(), date.getFullYear()];

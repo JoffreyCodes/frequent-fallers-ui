@@ -5,12 +5,20 @@ import { Row, Col,Form } from 'react-bootstrap';
 export function StuffyGrid(props){
   const stuffyData = props.stuffyList.map((stuffy)=>stuffy);
 
-  const stuffyNames = props.stuffyList.map((stuffy)=>stuffy.stuffyName);
+  // const stuffyNames = props.stuffyList.map((stuffy)=>stuffy.stuffyName);
+  // let initList = [];  
+  //   stuffyNames.forEach(stuffyName => [
+  //     initList.push({
+  //       stuffyName: stuffyName, 
+  //       isChecked: false
+  //     })  
+  //   ])
+
   let initList = [];  
-    stuffyNames.forEach(stuffyName => [
+  stuffyData.forEach(stuffy => [
       initList.push({
-        stuffyName: stuffyName, 
-        isChecked: false
+        stuffyName: stuffy.stuffyName, 
+        isChecked: ((stuffy.didFall)===undefined)? false: stuffy.didFall
       })  
     ])
 

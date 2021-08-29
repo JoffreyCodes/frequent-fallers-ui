@@ -36,7 +36,7 @@ export function StuffyCard(props){
               className='stuffyCheck'
               type="checkbox"
               id={props.stuffyName}
-              checked={props.didFall || isChecked}
+              checked={ isChecked }
               onChange={(e)=> null}
             />
           </Form>
