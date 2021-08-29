@@ -1,10 +1,11 @@
 import React, {useState} from 'react'
 import { StuffyCard } from './StuffyCard' 
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col,Form } from 'react-bootstrap';
 
 export function StuffyGrid(props){
+  const stuffyData = props.stuffyList.map((stuffy)=>stuffy);
+
   const stuffyNames = props.stuffyList.map((stuffy)=>stuffy.stuffyName);
-  
   let initList = [];  
     stuffyNames.forEach(stuffyName => [
       initList.push({
@@ -30,15 +31,17 @@ export function StuffyGrid(props){
       <Row 
         className="stuffy-grid"
       >
-        {props.stuffyList.map((stuffy)=>
+        {stuffyData.map((stuffy)=>
           <Col 
             className="card-col"
             key={stuffy.stuffyName}>
-            <StuffyCard 
-              stuffyName={stuffy.stuffyName}
-              isChecked={handleCheck}
-              key={stuffy.stuffyName}
-            />
+
+              <StuffyCard 
+                stuffyName={stuffy.stuffyName}
+                didFall={((stuffy.didFall)===undefined)? false: stuffy.didFall}
+                isChecked={handleCheck}
+                key={stuffy.stuffyName}
+              />
           </Col>
         )}
       </Row>

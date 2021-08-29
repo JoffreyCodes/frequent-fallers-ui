@@ -10,7 +10,7 @@ export function StuffyCard(props){
     }
   }
 
-  const [isChecked, setIsChecked] = useState(false)
+  const [isChecked, setIsChecked] = useState(props.didFall)
 
   function handleCardClick(event){
     setIsChecked(!isChecked)
@@ -36,8 +36,8 @@ export function StuffyCard(props){
               className='stuffyCheck'
               type="checkbox"
               id={props.stuffyName}
-              checked={isChecked}
-              onChange={()=> null}
+              checked={props.didFall || isChecked}
+              onChange={(e)=> null}
             />
           </Form>
         </Card.Footer>

@@ -14,7 +14,13 @@ export function Layout(){
   const [onCompleted, setOnCompleted] = useState(false)
   const [date, setDate] = useState(new Date());
 
-  const [month, day, year] = [date.getMonth(), date.getDate(), date.getFullYear()];
+  let month, day, year;
+  try{
+    [month, day, year] = [date.getMonth(), date.getDate(), date.getFullYear()];
+  }catch (err){
+    [month, day, year] = [new Date().getMonth, new Date().getDate, new Date().getFullYear()];
+  }
+  
   var MONTH_NUMS = [];
   for (var i = 1; i <= 12; i++) {
     MONTH_NUMS.push(i);
@@ -34,14 +40,23 @@ export function Layout(){
   if (error) return `Error! ${error.message}`;
 
   if( data && onCompleted === false){
+    
+    // console.log(`newData`)
+  
     setStuffyList(data.stuffies)
     setOnCompleted(true)
   }
   if(prevSubs.data.priorSubmissions.length !== 0 && onCompleted === false){
+    
+    // console.log(`prevData`)
+
     setStuffyList(prevSubs.data.priorSubmissions)
     setOnCompleted(true)
   }
 
+  // console.log(`stuffyCheckedList: ${stuffyCheckedList.map((stuffyData)=>stuffyData)}`)
+  // console.log(`stuffyList: ${stuffyList}`)
+  
   return (
     prevSubs.data?
       <Container fluid className="app-container">
