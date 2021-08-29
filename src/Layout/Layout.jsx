@@ -26,13 +26,11 @@ export function Layout(){
     MONTH_NUMS.push(i);
   }
   const date_formatted = `"${MONTH_NUMS[month]}/${day}/${year}"`
-  
   const prevSubs = useQuery(gql`query PriorSubmissions{
     priorSubmissions(date:${date_formatted}) {
       date stuffyName didFall
     }
   }`)
-
   const {data, error, loading} = useQuery(STUFFY_LIST)
 
   if (prevSubs.loading || loading) return "Loading..."
@@ -41,14 +39,14 @@ export function Layout(){
 
   if( data && onCompleted === false){
     
-    // console.log(`newData`)
+    console.log(`newData`)
   
     setStuffyList(data.stuffies)
     setOnCompleted(true)
   }
   if(prevSubs.data.priorSubmissions.length !== 0 && onCompleted === false){
     
-    // console.log(`prevData`)
+    console.log(`prevData`)
 
     setStuffyList(prevSubs.data.priorSubmissions)
     setOnCompleted(true)

@@ -22,6 +22,7 @@ function DateContainer(props) {
   })
 
   function handleChange(event){
+    setDate(event)
     props.setDate(event)
     props.setOnCompleted(false)
   }
@@ -31,8 +32,7 @@ function DateContainer(props) {
       <ShowWeekday />
       {' '}
       <DatePicker 
-        // onChange={(event)=>handleChange(event)}
-        onChange={setDate}
+        onChange={(event)=>handleChange(event)}
         value={props.date}
       />
     </Container>
