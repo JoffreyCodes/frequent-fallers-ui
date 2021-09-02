@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
 import {Container, Button, Alert} from 'react-bootstrap'
-import { WEEKDAYS } from '../utils/DateFormatter'
+import { date_formatter } from '../utils/DateFormatter'
 
-import HandleSubmit from './HandleSubmit'
+import HandleUpdateSubmit from './HandleUpdateSubmit'
 
 function SubmissionSequence(props) {
   const [preConfirmed, setPreConfirmed] = useState(false)
@@ -11,9 +11,8 @@ function SubmissionSequence(props) {
   let message;
   let validDate
   try{
-    const dateNum= props.date.getDay()
     validDate = true
-    message=(`Confirm ${WEEKDAYS[dateNum]} Submission?`)
+    message=(`Update ${date_formatter(props.date)} Submission?`)
   }catch (err){
     validDate = false
     message="Must select a date before submitting"
@@ -36,7 +35,7 @@ function SubmissionSequence(props) {
   }
 
   function handleSuccessClick(){
-    HandleSubmit(props.date, props.updateSubList)
+    HandleUpdateSubmit(props.date, props.updateSubList)
     setSuccess(true)
   }
 

@@ -3,28 +3,40 @@ import { Table } from 'react-bootstrap'
 
 function ListCheckedStuffies(props) {
 
-  function ItemizedStuffies(){
-   const filteredTrue = props.stuffyCheckedList
-    .filter((stuffyData) => stuffyData.isChecked === true)
+  const getInitData = props.initStuffyData.filter((stuffyData) =>
+  stuffyData.didFall === true)
 
-    
-    function calculateCount(stuffyName){
-      return 1;
-    }
+  const getUpdateSubList = props.updateSubList? props.updateSubList.filter((stuffyData) =>
+  stuffyData.didFall === true) : []
 
-    return(
-      filteredTrue.map((stuffyData, i)=>
-        <tr key={i}>
-          <td>
-            {stuffyData.stuffyName}
-          </td>
-          <td>
-            {calculateCount(stuffyData.stuffyName)}
-          </td>
-        </tr>
-      )
-    )
+  let filteredTrue=[]
+  
+  // New Data Entry 
+  if(getInitData.length === 0 && getUpdateSubList.length === 0){
+    filteredTrue = getInitData
   }
+  if(getInitData.length === 0 && getUpdateSubList.length !== 0){
+    filteredTrue = getUpdateSubList
+  }
+
+  // Update Data Entry
+  if(getInitData.length !== 0 && getUpdateSubList.length === 0){
+    filteredTrue = getInitData
+  }
+  if(getInitData.length !== 0 && getUpdateSubList.length !== 0){
+    filteredTrue = getUpdateSubList
+  }
+
+/*
+  TODO: date returns twice causing issues.
+  When user causes an event in new data entry (ie
+  check and/or uncheck), followed by changing date,
+  the first date rendered is returning the initList 
+  data of the new entry date instead of the data of
+  the intended initList of the date to update.
+  Attempt: Make DateContainer only return a single 
+  date instance
+*/ 
 
   return (
     <div className="CheckedStuffiesContainer">
@@ -42,7 +54,16 @@ function ListCheckedStuffies(props) {
           </tr>
         </thead>
         <tbody>
-          <ItemizedStuffies />
+          {filteredTrue.map((stuffyData, i)=>
+            <tr key={i}>
+              <td>
+                {stuffyData.stuffyName}
+              </td>
+              <td>
+                1
+              </td>
+            </tr>
+          )}
         </tbody>
       </Table>
     </div>

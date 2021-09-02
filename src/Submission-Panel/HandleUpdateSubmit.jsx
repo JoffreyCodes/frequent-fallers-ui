@@ -9,8 +9,8 @@ function HandleSubmit(date, didFallData) {
       method: 'POST',	
       headers: { 'Content-Type': 'application/json' },	
       body: JSON.stringify({ query: 
-        `mutation LogStuffyFall{
-          logStuffyFall(
+        `mutation {
+          updateStuffyFall(
             date:"${date_formatted}"
             stuffyName:"${stuffyName}"
             didFall:${didFall}

@@ -1,17 +1,30 @@
 import React from 'react'
 import ListCheckedStuffies from './ListCheckedStuffies'
 import SubmissionSequence from './SubmissionSequence'
+import UpdateSubmissionSequence from './UpdateSubmissionSequence'
 
-function SubmissionPanel(props) {  
+function SubmissionPanel(props) {
+
   return (
     <>
-      <ListCheckedStuffies
-        stuffyCheckedList={props.stuffyCheckedList}
-      />
-      <SubmissionSequence
-        date={props.date}
-        stuffyCheckedList={props.stuffyCheckedList} 
-      />
+    {props.initStuffyData
+    ? <>
+        <ListCheckedStuffies
+          initStuffyData={props.initStuffyData}
+          updateSubList={props.toSubmissionComponent}
+        />
+        {props.initStuffyData.some(stuffyData=>stuffyData.didFall === true)
+        ? <UpdateSubmissionSequence
+            date={props.date}
+            updateSubList={props.toSubmissionComponent} 
+          />
+        : <SubmissionSequence
+            date={props.date}
+            updateSubList={props.toSubmissionComponent} 
+          />
+        }
+      </>
+    : null}
     </>
   )
 }

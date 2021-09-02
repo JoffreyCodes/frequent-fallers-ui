@@ -1,30 +1,19 @@
 import React, {useState, useEffect} from 'react'
 import {Container} from 'react-bootstrap'
 import DatePicker from 'react-date-picker'
+import {WEEKDAYS} from '../utils/DateFormatter'
 
 function DateContainer(props) {
-  const [date, setDate] = useState(props.date);
-  const weekdays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 
   function ShowWeekday(){
     let message;
     try{
-      const dateNum= date.getDay()
-      message=(`${weekdays[dateNum]}`)
+      const dateNum= props.date.getDay()
+      message=(`${WEEKDAYS[dateNum]}`)
     }catch (err){
       message=("Please pick a date: ")
     }
     return message
-  }
-
-  useEffect(()=>{
-    props.setDate(date);
-  })
-
-  function handleChange(event){
-    setDate(event)
-    props.setDate(event)
-    props.setOnCompleted(false)
   }
 
   return (
@@ -32,7 +21,7 @@ function DateContainer(props) {
       <ShowWeekday />
       {' '}
       <DatePicker 
-        onChange={(event)=>handleChange(event)}
+        onChange={props.setDate}
         value={props.date}
       />
     </Container>

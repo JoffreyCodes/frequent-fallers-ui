@@ -1,7 +1,10 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { Form, Card } from 'react-bootstrap'
-export function StuffyCard(props){
 
+export function StuffyCard(props){
+  const {stuffyName, didFall} = props.stuffyData
+  const [isChecked, setIsChecked] = useState(didFall)
+  
   function stuffyImage(stuffyName){
     try {
       return (require(`../images/${stuffyName}.png`).default)
@@ -10,12 +13,17 @@ export function StuffyCard(props){
     }
   }
 
-  const [isChecked, setIsChecked] = useState(props.didFall)
-
-  function handleCardClick(event){
+  function handleCardClick(){
     setIsChecked(!isChecked)
-    props.isChecked([props.stuffyName, !isChecked, event])
+    props.setSubmissionList({
+      'stuffyName': stuffyName,
+      'checked': !isChecked
+    })
   }
+
+  useEffect(()=>{
+    setIsChecked(didFall)
+  },[didFall])
 
   return(
     <>
@@ -23,27 +31,27 @@ export function StuffyCard(props){
         border='secondary'
         bg='secondary' 
         style={{ width: '30vw' }}
-        key={props.stuffyName}
+        key={stuffyName}
         onClick={handleCardClick}
       >
         <Card.Img
           variant="top" 
-          src={stuffyImage(props.stuffyName)}
+          src={stuffyImage(stuffyName)}
         />
         <Card.Footer>
           <Form>
             <Form.Check
               className='stuffyCheck'
               type="checkbox"
-              id={props.stuffyName}
-              checked={ isChecked }
-              onChange={(e)=> null}
+              id={stuffyName}
+              checked={isChecked}
+              onChange={(e)=> setIsChecked(!isChecked)}
             />
           </Form>
         </Card.Footer>
       </Card>
     </>
   )
-
-
 }
+
+export default StuffyCard
