@@ -14,6 +14,7 @@ export function StuffyCard(props){
   }
 
   function handleCardClick(){
+    props.setUserChecked(true)
     setIsChecked(!isChecked)
     props.setSubmissionList({
       'stuffyName': stuffyName,

@@ -10,6 +10,7 @@ export function Layout(){
   const [date, setDate] = useState(new Date());
   const [toSubmissionComponent, setToSubmissionComponent] = useState()
   const [initStuffyData, setInitStuffyData] = useState()
+  const [userChecked, setUserChecked] = useState(false)
   
   return (
       <Container fluid className="app-container">
@@ -25,6 +26,7 @@ export function Layout(){
               <NavBarPanel
                 date={date}
                 setDate={setDate}
+                userChecked={userChecked}
               />
             </Col>
             <Row>
@@ -36,6 +38,7 @@ export function Layout(){
                   date={date}
                   setToSubmissionComponent={setToSubmissionComponent}
                   setInitStuffyData={setInitStuffyData}
+                  setUserChecked={setUserChecked}
                 />
               </Col>
               <Col 

@@ -82,6 +82,7 @@ export function StuffyGrid(props){
               stuffyData={stuffyData}
               setSubmissionList={SetSubmissionList} 
               key={`card: ${stuffyData.stuffyName}`}
+              setUserChecked={props.setUserChecked}
               />
           </Col>
         )}

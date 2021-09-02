@@ -8,6 +8,7 @@ function NavBarPanel(props) {
       <DateContainer 
         date={props.date}
         setDate={props.setDate}
+        userChecked={props.userChecked}
       />
     </>
   )

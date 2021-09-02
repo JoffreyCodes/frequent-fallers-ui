@@ -20,7 +20,8 @@ function DateContainer(props) {
     <Container className="date-container">
       <ShowWeekday />
       {' '}
-      <DatePicker 
+      <DatePicker
+        disabled={props.userChecked}
         onChange={props.setDate}
         value={props.date}
       />

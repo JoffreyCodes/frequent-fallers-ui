@@ -12,6 +12,7 @@ export function CardsPanel(props){
         setNewSubmission={props.setNewSubmission} 
         setSubmissionList={props.setToSubmissionComponent}
         setInitStuffyData={props.setInitStuffyData}
+        setUserChecked={props.setUserChecked}
       />
     </>
   )
