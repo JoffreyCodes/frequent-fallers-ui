@@ -4,7 +4,6 @@ import SubmissionSequence from './SubmissionSequence'
 import UpdateSubmissionSequence from './UpdateSubmissionSequence'
 
 function SubmissionPanel(props) {
-
   return (
     <>
     {props.initStuffyData
@@ -13,12 +12,12 @@ function SubmissionPanel(props) {
           initStuffyData={props.initStuffyData}
           updateSubList={props.toSubmissionComponent}
         />
-        {props.initStuffyData.some(stuffyData=>stuffyData.didFall === true)
-        ? <UpdateSubmissionSequence
+        {props.initStuffyData.some(stuffyData=>stuffyData.newEntry === true)
+        ? <SubmissionSequence
             date={props.date}
             updateSubList={props.toSubmissionComponent} 
           />
-        : <SubmissionSequence
+        : <UpdateSubmissionSequence
             date={props.date}
             updateSubList={props.toSubmissionComponent} 
           />

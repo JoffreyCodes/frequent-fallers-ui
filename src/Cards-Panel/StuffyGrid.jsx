@@ -28,7 +28,8 @@ export function StuffyGrid(props){
   newEntryList.forEach(stuffyData =>[
     initList.push({
       stuffyName: stuffyData.stuffyName,
-      didFall: false
+      didFall: false,
+      newEntry: true
     })
   ])
   
