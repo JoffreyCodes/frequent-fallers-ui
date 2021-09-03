@@ -1,5 +1,6 @@
 import React from 'react'
 import { Table } from 'react-bootstrap'
+import {partnerMatch} from './partnerMatch'
 
 function ListCheckedStuffies(props) {
 
@@ -49,8 +50,8 @@ function ListCheckedStuffies(props) {
       >
         <thead>
           <tr>
-            <th>stuffy-name</th>
-            <th>count</th>
+            <th>Stuffy Name ({getUpdateSubList.length === 0 ? getInitData.length : getUpdateSubList.length})</th>
+            <th>Points</th>
           </tr>
         </thead>
         <tbody>
@@ -60,7 +61,7 @@ function ListCheckedStuffies(props) {
                 {stuffyData.stuffyName}
               </td>
               <td>
-                1
+                {stuffyData.stuffyName === partnerMatch(stuffyData.stuffyName, filteredTrue) ? 2 : 1} 
               </td>
             </tr>
           )}
