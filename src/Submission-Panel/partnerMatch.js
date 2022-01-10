@@ -22,8 +22,12 @@ function partnerMatch(stuffyName, filteredTrue) {
   )
   
   const octiPoints = stuffyName==='Octi' && trueList.length >= 8 ? true : false
+  const bennyPoints = stuffyName ==='Benny' && (
+    trueList.includes(['Dino', 'Grizzly']) || 
+    trueList.includes(['Dino', 'Dart-Tingles']) ||
+    trueList.includes(['Dart-Tingles', 'Grizzly']))
   
-  return trueList.includes(stuffyPair.stuffyPartner) || octiPoints ? stuffyName : null
+  return trueList.includes(stuffyPair.stuffyPartner) || octiPoints || bennyPoints ? stuffyName : null
 }
 
 export {partnerMatch}
