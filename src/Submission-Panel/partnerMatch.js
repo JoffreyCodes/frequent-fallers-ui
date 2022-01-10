@@ -14,6 +14,7 @@ const STUFFY_PARTNER_LIST = [
   {stuffyName:'Dino', stuffyPartner:'Dart-Tingles'},
   {stuffyName:'Dart-Tingles', stuffyPartner:'Dino'},
   {stuffyName:'Octi', stuffyPartner:'n/a'},
+  {stuffyName:'Benny', stuffyPartner:'n/a'},
 ]
 function partnerMatch(stuffyName, filteredTrue) {
   const trueList = filteredTrue.map(stuffyData=>stuffyData.stuffyName)
