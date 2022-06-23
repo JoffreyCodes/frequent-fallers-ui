@@ -126,8 +126,8 @@ label[for=Dart-Tingles]{
 }
 .CheckedStuffiesContainer{
 	margin-top: 5px;
-	/* height: 80%; */
-	min-height: 26vh;
+	height:28vh;
+	max-height: 28vh;
 	overflow-y: scroll;
 	background-color: rgb(100, 100, 100);
 	border: 2px solid black;
