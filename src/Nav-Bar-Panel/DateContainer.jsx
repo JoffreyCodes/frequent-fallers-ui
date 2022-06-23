@@ -1,4 +1,3 @@
-import React, {useState, useEffect} from 'react'
 import {Container} from 'react-bootstrap'
 import DatePicker from 'react-date-picker'
 import {WEEKDAYS} from '../utils/DateFormatter'

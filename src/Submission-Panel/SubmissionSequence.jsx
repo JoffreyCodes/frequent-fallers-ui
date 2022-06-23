@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {Container, Button, Alert} from 'react-bootstrap'
+import { Button, Alert} from 'react-bootstrap'
 import { WEEKDAYS } from '../utils/DateFormatter'
 
 import HandleSubmit from './HandleSubmit'
@@ -65,13 +65,13 @@ function SubmissionSequence(props) {
   }
 
   return (
-    <Container className='pre-submit-button'>
+    <>
       {success
         ? <Alert 
             variant='success'> Submission Successful</Alert>
         :<UserConfirmed />
       }
-    </Container>
+    </>
   )
 }
 

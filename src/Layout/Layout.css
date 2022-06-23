@@ -101,12 +101,24 @@ label[for=Dart-Tingles]{
 /* Submission panel */
 .submission-panel{
 	color: var(--main-text-color);
-	min-height: 40vh;
+	/* min-height: 40vh; */
 	border-radius: 10px;
 	border: 2px solid var(--main-border-color);
-	height: 35vh;
+	/* height: 35vh; */
+	display: flex;
+	flex-flow: column;
+	height: 100%;
 	padding: 5px 10px;
 	font-size: 11px;
+}
+.submission-container{
+	display: flex;
+	flex-flow: column;
+	padding:0px;
+}
+.submission-container-buttons{
+	margin: 5px 0 ;
+	padding: 0 20px;
 }
 .react-date-picker{
 	margin-bottom: 5px;
@@ -114,7 +126,8 @@ label[for=Dart-Tingles]{
 }
 .CheckedStuffiesContainer{
 	margin-top: 5px;
-	height: 80%;
+	/* height: 80%; */
+	min-height: 26vh;
 	overflow-y: scroll;
 	background-color: rgb(100, 100, 100);
 	border: 2px solid black;
@@ -136,11 +149,9 @@ td {
 	font-size: 12px;
 	padding-top: 0px 0px;
 }
-
-.pre-submit-button{
-	margin: 3px;
+.submission-container-buttons{
+	min-width: 75vw;
 }
-
 .fade.alert.alert-success.show{
 	padding:10px;
 	margin-top: 5px;

@@ -64,13 +64,13 @@ function SubmissionSequence(props) {
   }
 
   return (
-    <Container className='pre-submit-button'>
+    <>
       {success
         ? <Alert 
             variant='success'> Submission Successful</Alert>
         :<UserConfirmed />
       }
-    </Container>
+    </>
   )
 }
 
